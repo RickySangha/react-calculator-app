@@ -1,1 +1,1 @@
-Simple calculator app for practice with React.s
+Simple calculator app for practice with React
