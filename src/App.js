@@ -89,10 +89,12 @@ function App() {
       if (/\d$/.test(formula)) {
         finalVal = eval(formula).toString();
       } else if (/[-*/+]$/.test(formula)) {
-        finalVal = eval(formula.slice(0, -1)).toString();
+        finalVal = eval(formula.slice(0, formula.length - 1)).toString();
       }
       setIsEval(true);
-      setFormula(prevFormula => prevFormula + "=" + finalVal);
+      setFormula(
+        prevFormula => prevFormula.slice(0, formula.length - 1) + "=" + finalVal
+      );
       setInput(finalVal);
       setAns(finalVal);
     }

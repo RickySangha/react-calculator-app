@@ -1,5 +1,4 @@
 import React from "react";
-import "/Users/rickysangha/Desktop/calculator/src/App.css";
 
 function Display(props) {
   return (
