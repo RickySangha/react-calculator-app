@@ -90,11 +90,17 @@ function App() {
         finalVal = eval(formula).toString();
       } else if (/[-*/+]$/.test(formula)) {
         finalVal = eval(formula.slice(0, formula.length - 1)).toString();
+        setFormula(
+          prevFormula =>
+            prevFormula.slice(0, formula.length - 1) + "=" + finalVal
+        );
+        setInput(finalVal);
+        setIsEval(true);
+        setAns(finalVal);
+        return;
       }
       setIsEval(true);
-      setFormula(
-        prevFormula => prevFormula.slice(0, formula.length - 1) + "=" + finalVal
-      );
+      setFormula(prevFormula => prevFormula + "=" + finalVal);
       setInput(finalVal);
       setAns(finalVal);
     }
